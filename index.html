@@ -70,28 +70,7 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-  <script>
   
-  $("#contact").submit(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = $(this);
-    var url = form.attr('action');
-
-    $.ajax({
-          type: "POST",
-          url: url,
-          data: form.serialize(), // serializes the form's elements.
-          success: function(data)
-          {
-              alert(data); // show response from the php script.
-          }
-        });
-
-
-    });
-</script>
 </body>
 
 </html>

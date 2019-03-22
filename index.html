@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -24,6 +24,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#fafafa">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
 
   <link rel="stylesheet" href="css/normalize.css">
@@ -40,16 +41,25 @@
   <main>
     <img src="img/logo.svg" alt="Southern Property Hub" />
   </main>
-  <form  style="display: none">
-    <p>If you have any questions about the Southern Property Hub or would like to find out more, please complete the form below.</p>
-    <input name="name" placeholder="Name" />
-    <input name="email" placeholder="Email address" />
-    <input name="phone" placeholder="Phone number" />
-    <textarea name="message" placeholder="Your message"></textarea>
+  <form action="https://amillionmonkeys.wufoo.com/forms/z1o84l271009iyz/#public" id="contact" name="form11"
+    class="wufoo topLabel page" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post"
+    style="display: none">
+    <p>If you have any questions about the Southern Property Hub or would like to find out more, please complete the
+      form below.</p>
+    <input id="Field1" placeholder="Name" name="Field1" type="text" class="field text medium" value="" maxlength="255"
+      tabindex="1" onkeyup="" required />
+    <input id="Field2" name="Field2" type="email" spellcheck="false" class="field text medium" value="" maxlength="255"
+      tabindex="2" placeholder="Email address" required />
+      <input id="Field6" name="Field6" type="text" class="field text medium" value="" maxlength="255" tabindex="3" onkeyup=""       placeholder="Phone number" />
+
+    <textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="4"
+      onkeyup="" placeholder="Your Message"></textarea>
+      <input type="hidden" id="idstamp" name="idstamp" value="B/5763X40oqdrNyyYUpHNHxyv8olse+KDl3QGdtKrNo=" />
     <button type="submit">SUBMIT</button>
   </form>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
@@ -60,6 +70,28 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  <script>
+  
+  $("#contact").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+          type: "POST",
+          url: url,
+          data: form.serialize(), // serializes the form's elements.
+          success: function(data)
+          {
+              alert(data); // show response from the php script.
+          }
+        });
+
+
+    });
+</script>
 </body>
 
 </html>

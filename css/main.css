@@ -16,6 +16,8 @@
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 /*
@@ -302,7 +304,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Arial';
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem;
 }
 
 main {
@@ -339,6 +342,8 @@ form > * {
 form input,
 form textarea,
 form button {
+    font-family: 'Roboto', sans-serif;
+
     appearance: none;
     border: 0;
     background-color: rgba(255,255,255,0.8);
